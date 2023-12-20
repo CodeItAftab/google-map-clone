@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+
+/* variables */
+
+:root {
+  --sidebar-w: 320px;
+  --map-nav-w: 72px;
+  --map-nav-h: 64px;
+  --icon-clr: #878787;
+
+}
+
+
+/* Utility Classes */
+
+.icon {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #6d6d6d;
+
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+
+.direction-icon {
+  color: #2189ff;
+}
+
+.location-icon {
+  font-size: 1.4rem;
+}
+
+
+
+
+
+
+
+/* Components Styles */
+
+/* switch */
+
+.switch {
+  height: 14px;
+  width: 32px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  background-color: #c6c6c6;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.switch-btn {
+  height: 16px;
+  width: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: relative;
+  /* z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  box-shadow: 0 0 3px 2px #3f3f3f47;
+  cursor: pointer;
+
+}
+
+.switch-btn:hover {
+  box-shadow: 0 0 0px 4px #6b6b6b1e;
+
+}
+
+.switch-on {
+  justify-content: flex-end;
+  background-color: #d2e7fd;
+}
+
+.switch-on .switch-btn {
+  background-color: blue;
+
+}
+
+.switch-on .switch-btn:hover {
+  box-shadow: 0 0 0px 4px #488ef433;
+}
+
+
+/* .switch-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  z-index: 3;
+  background-color: black;
+} */
+
+
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: #87878769;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* App */
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* Container */
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  /* background-color: rgb(227, 241, 255); */
+  position: relative;
+  display: flex;
+}
+
+
+/* Sidebar */
+
+.sidebar {
+  height: 100%;
+  width: var(--sidebar-w);
+  background-color: white;
+  text-align: center;
+  /* padding-top: 1rem; */
+  position: absolute;
+  top: 0;
+  left: -400px;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 6px 0 rgba(35, 35, 35, 0.616);
+
+}
+
+.logo-container {
+  width: 100%;
+  height: 48px;
+  /* background-color: rebeccapurple; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+
+}
+
+.logo {
+  height: 1.6rem;
+  /* width: 131px; */
+}
+
+.close-sidebar-btn {
+  height: 32px;
+  width: 32px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background: none;
+  color: var(--icon-clr);
+}
+
+
+
+
+
+
+
+
+
+.show-side-bar {
+  left: 0;
+}
+
+
+
+
+.sidebar-option {
+  width: 100%;
+  height: 48px;
+  /* background-color: rgb(157, 154, 154); */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-inline: 1.5rem;
+}
+
+.sidebar-option:hover,
+.sidebar-option:hover span {
+  color: rgb(15, 111, 255);
+}
+
+
+.sidebar-option-icon {
+  font-size: 1.6rem;
+  color: var(--icon-clr);
+  /* font-weight: bold; */
+}
+
+.sidenav-view-option {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+}
+
+
+
+
+
+.sidebar-option .option-title {
+  font-size: 13px;
+  /* color: var(--icon-clr); */
+}
+
+
+
+/* Blur div */
+.blur-div {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.162);
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.show-blur-div {
+  z-index: 1;
+
+}
+
+
+/* Map Container */
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* side nav option */
+
+.side-nav {
+  height: 100%;
+  width: var(--map-nav-w);
+  background-color: white;
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  box-shadow: 0 2px 4px 0 rgba(35, 35, 35, 0.616);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5rem;
+  gap: 1rem;
+
+}
+
+.side-nav-option {
+  height: 50px;
+  width: 50px;
+  border: none;
+  outline: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #878787;
+  gap: 4px;
+}
+
+.side-nav-option-icon {
+  font-size: 1.5rem;
+  color: #6d6d6d;
+
+}
+
+.side-nav-option span {
+  font-size: 0.6rem;
+  color: var(--icon-clr);
+  font-weight: 500;
+}
+
+
+/* map-nav */
+
+.map-nav {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 1rem;
+  left: calc(var(--map-nav-w) + 1rem);
+
+}
+
+.btn {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+
+
+/* .map-nav-btn {
+  display: none;
+} */
+
+.map-nav {
+  width: 335px !important;
+  box-shadow: 0 1px 4px 0 rgba(35, 35, 35, 0.478);
+  border-radius: 24px;
+}
+
+.form-container {
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding-inline: 0.8rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.197);
+}
+
+
+.side-nav-view-btn {
+  height: 40px;
+  width: 40px;
+}
+
+
+
+
+.search-input {
+  height: 40px;
+  width: 280px;
+  outline: none;
+  border: none;
+  padding-inline: 0.5rem;
+  font-size: 1rem;
+  color: rgb(47, 47, 47);
+}
+
+
+/* search result list */
+
+.search-result-list {
+  max-height: 300px;
+  width: 100%;
+  background-color: white;
+  border-radius: 0px 0px 24px 24px;
+  padding-bottom: 1rem;
+}
+
+
+.search-item {
+  width: 100%;
+  height: 40px;
+  /* background: yellow; */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  border-top: 1px solid rgba(128, 128, 128, 0.142);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: rgb(59, 59, 59);
+}
+
+.remove-search-box-border {
+  border-radius: 24px 24px 0 0;
+}
+
+.increase-search-box-width {
+  width: 375px !important;
+  /* margin-left: 1rem; */
+}
+
+
+/* map */
+
+.map {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+
+
+/* functional classes */
+
+
+.move-left {
+  left: 1rem;
+}
