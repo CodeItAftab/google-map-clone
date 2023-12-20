@@ -5,12 +5,14 @@ const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   useEffect(
     function () {
       const controller = new AbortController();
       async function search() {
-        // setSearchResult([]);
+        setSearchResult([]);
+        setIsLoading(true);
         try {
           const res = await fetch(
             `   https://nominatim.openstreetmap.org/search?q=${query}&format=json&addressdetails=1`,
@@ -21,6 +23,8 @@ const SearchProvider = ({ children }) => {
           setSearchResult(data.filter((e, i) => i < 5));
         } catch (err) {
           console.log(err);
+        } finally {
+          setIsLoading(false);
         }
       }
       search();
@@ -33,7 +37,7 @@ const SearchProvider = ({ children }) => {
 
   return (
     <SearchContext.Provider
-      value={{ query, setQuery, searchResult, setSearchResult }}
+      value={{ query, setQuery, searchResult, setSearchResult, isLoading }}
     >
       {children}
     </SearchContext.Provider>
